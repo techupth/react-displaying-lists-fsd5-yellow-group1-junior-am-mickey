@@ -67,7 +67,7 @@ const movies = [
   },
   {
     title: "Game of Thrones",
-    year: "2011–",
+    year: "2011",
     runtime: "56 min",
     director: "N/A",
     image:
@@ -78,7 +78,7 @@ const movies = [
   },
   {
     title: "Vikings",
-    year: "2013–",
+    year: "2013",
     runtime: "44 min",
     director: "N/A",
     image:
@@ -89,7 +89,7 @@ const movies = [
   },
   {
     title: "Gotham",
-    year: "2014–",
+    year: "2014",
     runtime: "42 min",
     director: "N/A",
     image:
@@ -100,7 +100,7 @@ const movies = [
   },
   {
     title: "Power",
-    year: "2014–",
+    year: "2014",
     runtime: "50 min",
     director: "N/A",
     image:
@@ -166,7 +166,7 @@ const movies = [
   },
   {
     title: "Luke Cage",
-    year: "2016–",
+    year: "2016",
     runtime: "55 min",
     director: "N/A",
     image:
@@ -176,5 +176,26 @@ const movies = [
     imdbVotes: "N/A",
   },
 ];
+
+export const movieSection = movies.map((list,index) => {
+  return <div key={index} className= {list + '-movie'}>
+    <div className="movie-box">
+    <div className="img-box">
+      <img className="movie-img" src={list.image} alt={list.title}/>
+    </div>
+    <ul className="info-box">
+      <li className="movie-title">Title: {list.title}</li>
+      <li className="movie-year">Year: {list.year}</li>
+      <li className="runtime">Runtime: {list.runtime}</li>
+      <li className="genres"> Genres: {list.genres.map((genresList,index)=>{
+        return <div key={index} className="styleGenres" >{genresList}</div>
+      })}</li>
+      <li className="rating"> imdbRating: {list.imdbRating}</li>
+      <li className="votes">imdbVotes: {list.imdbVotes}</li>
+      </ul> 
+  </div>
+  </div>
+})
+
 
 export default movies;
