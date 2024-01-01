@@ -67,7 +67,7 @@ const movies = [
   },
   {
     title: "Game of Thrones",
-    year: "2011–",
+    year: "2011",
     runtime: "56 min",
     director: "N/A",
     image:
@@ -78,7 +78,7 @@ const movies = [
   },
   {
     title: "Vikings",
-    year: "2013–",
+    year: "2013",
     runtime: "44 min",
     director: "N/A",
     image:
@@ -89,7 +89,7 @@ const movies = [
   },
   {
     title: "Gotham",
-    year: "2014–",
+    year: "2014",
     runtime: "42 min",
     director: "N/A",
     image:
@@ -100,7 +100,7 @@ const movies = [
   },
   {
     title: "Power",
-    year: "2014–",
+    year: "2014",
     runtime: "50 min",
     director: "N/A",
     image:
@@ -111,7 +111,7 @@ const movies = [
   },
   {
     title: "Narcos",
-    year: "2015–",
+    year: "2015",
     runtime: "49 min",
     director: "N/A",
     image:
@@ -166,7 +166,7 @@ const movies = [
   },
   {
     title: "Luke Cage",
-    year: "2016–",
+    year: "2016",
     runtime: "55 min",
     director: "N/A",
     image:
@@ -176,5 +176,37 @@ const movies = [
     imdbVotes: "N/A",
   },
 ];
+
+export function MovieList() {
+  return (
+    <>
+      {movies.map((item, index) => {
+        return (
+          <div className="movie-card" key={index}>
+            <img className="movie-card-img" src={item.image} alt="" />
+            <div className="movie-card-detail">
+              <p className="card-text">Title: {item.title}</p>
+              <p className="card-text">Year: {item.year}</p>
+              <p className="card-text">Runtime: {item.runtime}</p>
+              <p className="card-text">Director: {item.director}</p>
+              <p className="genre-content">
+                Genres:
+                {item.genres.map((genreItem, index) => {
+                  return (
+                    <p className="badge" key={index}>
+                      {genreItem}
+                    </p>
+                  );
+                })}
+              </p>
+              <p className="card-text">IMDB Rating: {item.imdbRating}</p>
+              <p className="card-text">IMDB Votes: {item.imdbVotes}</p>
+            </div>
+          </div>
+        );
+      })}
+    </>
+  );
+}
 
 export default movies;
